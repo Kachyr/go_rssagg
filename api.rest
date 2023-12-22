@@ -1,6 +1,69 @@
 ###
 GET http://localhost:8080/v1/ready
-
+###
 ###
 GET http://localhost:8080/v1/error
+###
+###
+POST http://localhost:8080/v1/users
+Content-Type: application/json
 
+{
+  "name": "Auth test User"
+}
+###
+###
+GET http://localhost:8080/v1/users
+Authorization: ApiKey f06c8cd46650f1c0caed6de6665d52bdeff50edcb6ffcea70fb91d9b9db6d0b5
+###
+
+###
+
+#Add feed url
+POST http://localhost:8080/v1/feeds
+Authorization: ApiKey f06c8cd46650f1c0caed6de6665d52bdeff50edcb6ffcea70fb91d9b9db6d0b5
+Content-Type: application/json
+
+{
+  "name": "Blog wagslane",
+  "url": "https://www.wagslane.dev/index.xml"
+}
+###
+
+###
+
+GET http://localhost:8080/v1/feeds
+
+###
+
+###
+GET http://localhost:8080/v1/feed_follows
+Authorization: ApiKey f06c8cd46650f1c0caed6de6665d52bdeff50edcb6ffcea70fb91d9b9db6d0b5
+###
+
+###
+POST http://localhost:8080/v1/feed_follows
+Authorization: ApiKey f06c8cd46650f1c0caed6de6665d52bdeff50edcb6ffcea70fb91d9b9db6d0b5
+Content-Type: application/json
+
+{
+  "feed_id": "da7ef56a-1090-4676-8f5b-d34d79a51cdb"
+}
+
+###
+
+###
+GET http://localhost:8080/v1/feed_follows
+Authorization: ApiKey f06c8cd46650f1c0caed6de6665d52bdeff50edcb6ffcea70fb91d9b9db6d0b5
+###
+
+#Delete Feed follow
+DELETE http://localhost:8080/v1/feed_follows/54b9d4a2-db5c-4b59-9609-6923ae67df58
+Authorization: ApiKey f06c8cd46650f1c0caed6de6665d52bdeff50edcb6ffcea70fb91d9b9db6d0b5
+###
+
+###
+#Get user posts
+GET http://localhost:8080/v1/posts
+Authorization: ApiKey f06c8cd46650f1c0caed6de6665d52bdeff50edcb6ffcea70fb91d9b9db6d0b5
+###
